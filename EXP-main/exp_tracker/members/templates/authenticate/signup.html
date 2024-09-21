@@ -1,0 +1,60 @@
+{% extends 'authenticate/layout.html' %}
+{% load static %}
+{% block start %}
+<div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+        <div class="front">
+            <img src="{% static 'members/img/frontImg.jpg' %}" alt="">
+            <div class="text">
+                <span class="text-1">TraXpense <br> Welcomes You</span>
+                <span class="text-2">Let's get connected</span>
+            </div>
+        </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+            <div class="signup-form">
+                <div class="title">Signup</div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="user_name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" name="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Enter your password" name="password1" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Enter your password" name="password2" required>
+                        </div>
+                        <div class="button input-box">
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div class="text sign-up-text">
+                            Already have an account? <a href="/members/login_user">Login Now</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    body {
+        background-image: url("{% static 'members/img/exp1.jpg' %}");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+</style>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,49 @@
+{% extends 'authenticate/layout.html' %}
+{% load static %}
+{% block start %}
+<div class="container">
+    <input type="checkbox" id="flip">
+    <div class="cover">
+        <div class="front">
+            <img src="{% static 'members/img/frontImg.jpg' %}" alt="">
+            <div class="text">
+                <span class="text-1">TraXpense<br>Welcome You</span>
+                <span class="text-2">Keep track of your Expenses</span>
+            </div>
+        </div>
+    </div>
+    <div class="forms">
+        <div class="form-content">
+            <div class="login-form">
+                <div class="title">Login</div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" name="user_name" placeholder="Enter your user name" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password1" placeholder="Enter your password" required>
+                        </div>
+                        <div class="text"><a href="#">Forgot password?</a></div>
+                        <div class="button input-box">
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div class="text sign-up-text">Don't have an account? <a href="/members/signup/">Sign Up</a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <style>
+        body {
+            background-image: url("{% static 'members/img/exp1.jpg' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+</div>
+{% endblock %}
